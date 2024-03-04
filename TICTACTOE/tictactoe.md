@@ -1,6 +1,10 @@
 Things learnt while building the tic-tac-toe AI 
 
 Minimax algorithm 
-Beta pruning 
+Minimax Algorithm with Beta pruning 
 Game theory 
-Basic search algorithms 
+Backtracking method 
+Static Evaluation 
+Various advanced concepts and syntax in Python 
+Objective Oriented Programming in Python
+
