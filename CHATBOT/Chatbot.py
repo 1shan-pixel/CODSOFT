@@ -26,7 +26,7 @@ def chatbot():
                 match = re.match(pattern, human_input)
                 if match:
                     response = responses
-                    print("Chatbot: "response)
+                    print("Chatbot: ",response)
                     break
     
    
