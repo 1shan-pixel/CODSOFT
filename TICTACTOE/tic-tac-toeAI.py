@@ -93,8 +93,7 @@ class Player():
 class Human(Player):
 
     def __init__(self, letter):
-        super().__init__(letter)
-    
+        super().__init__(letter)  
     def ask_for_move(self, game):
 
         valid_move = False 
@@ -119,13 +118,11 @@ class AI(Player):
         if len(game.available_moves()) == 9:
             move = random.choice(game.available_moves()) #chooses any one cell in the board. 
         else : 
-            move = self.minimax_algo(game, self.letter)['position']
-            
+            move = self.minimax_algo(game, self.letter)['position']    
         return move    
     def minimax_algo(self, state, player_letter):
         #could be done recursively as well, will do in the future. 
         max_player = self.letter 
-         
         if player_letter == 'X':
             other_player = 'O'
         else :
@@ -161,34 +158,26 @@ class AI(Player):
     
 
 def play(tic_tac_toe, player1, player2, print_game = True):
-        
         #tic_tac_toe is the object of the class Board. 
         if print_game == True:
-
             tic_tac_toe.show_nums()
-
         #letter defined in the Player Class as its variable 
-
         letter = "X"
-
         while tic_tac_toe.empty_cells():
             #ask for move for player 1
             if letter == "O":
                 move = player2.ask_for_move(tic_tac_toe)
             else:
                 #ask for move for player 2
-                move = player1.ask_for_move(tic_tac_toe)
-            
+                move = player1.ask_for_move(tic_tac_toe)         
             if tic_tac_toe.make_move(move,letter):
                 if print_game:
                     print("Move made by player ", letter, "at cell no.", move)
                     tic_tac_toe.paint_board()
-
                 if tic_tac_toe.winning_player(move, letter):
                     print("Player ", letter, "wins!")
                     return letter #returning the winning player , exiting the loop
                 letter = "O" if letter == "X" else "X"
-
         if print_game: 
             print("It's a tie!")        
 
@@ -196,6 +185,5 @@ def play(tic_tac_toe, player1, player2, print_game = True):
 print("Machine : X , Human : O")
 ai = AI("X")
 human = Human("O")
-
 board = Board()
 play(board,ai,human,print_game = True)
